@@ -17,19 +17,27 @@ class RomanNumeral:
     def toStringTuple(self):
         top = " "
         if (self.isMultiplied):
-            top = " "
-        return (top,self.symbol)
+            top = "_"
+        return (top, self.symbol)
 
 
-romanNumerals = [
+romanNumeralList = [
     RomanNumeral(1, "I", Ruleset.BaseOne),
     RomanNumeral(5, "V", Ruleset.BaseFive),
     RomanNumeral(10, "X", Ruleset.BaseOne),
     RomanNumeral(50, "L", Ruleset.BaseFive),
     RomanNumeral(100, "C", Ruleset.BaseOne),
     RomanNumeral(500, "D", Ruleset.BaseFive),
-    RomanNumeral(1000, "M", Ruleset.BaseOne),
+    RomanNumeral(1000, "I", Ruleset.BaseOne, True),
+    RomanNumeral(5000, "V", Ruleset.BaseFive, True),
+    RomanNumeral(10000, "X", Ruleset.BaseOne, True),
+    RomanNumeral(50000, "L", Ruleset.BaseFive, True),
+    RomanNumeral(100000, "C", Ruleset.BaseOne, True),
+    RomanNumeral(500000, "D", Ruleset.BaseFive, True),
+    RomanNumeral(1000000, "M", Ruleset.MaxValue, True),
 ]
+
+romanNumeralList.reverse()
 
 # Returns true if:
 # is not negative
@@ -39,7 +47,15 @@ def isNatural(numberString: str):
     trueValue = not bool(matchObj)
     return trueValue
 
-def transformToRomanNumeral(number):
+def transformToRomanNumeral(number: int):
+    romanNumeralTop = ""
     romanNumerals = ""
-    return romanNumerals
+    while(number > 0):
+        for idx, numeral in enumerate(romanNumeralList):
+            while (number >= numeral.value):
+                numeralTuple = numeral.toStringTuple()
+                romanNumeralTop += numeralTuple[0]
+                romanNumerals += numeralTuple[1]
+                number -= numeral.value
+    return romanNumeralTop + "\n" + romanNumerals
 
