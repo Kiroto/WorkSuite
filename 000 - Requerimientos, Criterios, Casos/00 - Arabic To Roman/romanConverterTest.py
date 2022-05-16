@@ -13,15 +13,15 @@ class IsNaturalTest(unittest.TestCase):
         self.assertEqual(isNatural("1000000"), True)
 
     def test_WhenDecimal(self):
-        self.assertEqual(isNatural("0.0"), True)
-        self.assertEqual(isNatural("9999.585"), True)
-        self.assertEqual(isNatural("1.0000000001"), True)
+        self.assertEqual(isNatural("0.0"), False)
+        self.assertEqual(isNatural("9999.585"), False)
+        self.assertEqual(isNatural("1.0000000001"), False)
 
     def test_WhenTrash(self):
-        self.assertEqual(isNatural("abracadabra"), True)
-        self.assertEqual(isNatural("Teen Wolf"), True)
-        self.assertEqual(isNatural("79797-8"), True)
-        self.assertEqual(isNatural("7+8"), True)
+        self.assertEqual(isNatural("abracadabra"), False)
+        self.assertEqual(isNatural("Teen Wolf"), False)
+        self.assertEqual(isNatural("79797-8"), False)
+        self.assertEqual(isNatural("7+8"), False)
 
 
 if __name__ == "__main__":

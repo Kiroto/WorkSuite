@@ -35,6 +35,11 @@ romanNumerals = [
 # is not negative
 # is not rationed
 def isNatural(numberString: str):
-    return bool(re.search("[^0-9]", numberString))
+    matchObj = re.search("[^0-9]", numberString)
+    trueValue = not bool(matchObj)
+    return trueValue
 
+def transformToRomanNumeral(number):
+    romanNumerals = ""
+    return romanNumerals
 
