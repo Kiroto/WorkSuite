@@ -32,6 +32,7 @@ These tests are to be ran manually by a user.
     * `123-45-6789`
     * `899-99-9999`
     * `555-47-7789`
+* Writing `exit` and pressing `enter` exits the program.
 ### Negative Cases
 * Typing the following into the console will announce to the user that the codes are invalid
     * `999-99-9999`
