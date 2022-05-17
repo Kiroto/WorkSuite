@@ -24,6 +24,16 @@ def clr_scr():
 # ___
 # MMMXXXV
 
+def printNumerals(tops: str, bottoms: str):
+    size = os.get_terminal_size()
+    cols = size.columns
+    while(len(tops) > 0):
+        topSegment = tops[:cols]
+        bottomSegment = bottoms[:cols]
+        tops = tops[cols:]
+        bottoms = bottoms[cols:]
+        print(topSegment)
+        print(bottomSegment)
 
 def getUserString(prompt:str):
     print(prompt)
@@ -41,7 +51,8 @@ def main():
             print("The value entered \"" + userIn + "\" is not a natural number...")
             continue
         print("The number \"" + userIn + "\" in roman numerals is:")
-        print(transformToRomanNumeral(int(userIn)))
+        romanNumeralTuple = transformToRomanNumeral(int(userIn))
+        printNumerals(romanNumeralTuple[0], romanNumeralTuple[1])
 
 if __name__ == "__main__":
     main()

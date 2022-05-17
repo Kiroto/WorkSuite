@@ -78,5 +78,5 @@ def transformToRomanNumeral(number: int):
                 romanNumerals += numeralTuple[1]
                 number -= valueMinus
 
-    return romanNumeralTop + "\n" + romanNumerals
+    return (romanNumeralTop, romanNumerals)
 
