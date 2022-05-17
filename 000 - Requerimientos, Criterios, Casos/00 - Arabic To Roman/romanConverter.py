@@ -45,7 +45,7 @@ romanNumeralList.reverse()
 def isNatural(numberString: str):
     matchObj = re.search("[^0-9]", numberString)
     trueValue = not bool(matchObj)
-    return trueValue
+    return trueValue and int(numberString) != 0
 
 def listGetFirst(list:list, ld):
     first = None
@@ -59,7 +59,7 @@ def transformToRomanNumeral(number: int):
     romanNumeralTop = ""
     romanNumerals = ""
     while(number > 0):
-        for idx, numeral in enumerate(romanNumeralList):
+        for numeral in romanNumeralList:
             firstThatCanSubtract = listGetFirst(romanNumeralList, lambda x : x.value < numeral.value and x.ruleset == Ruleset.BaseOne )
             numeralTuple = numeral.toStringTuple()
 

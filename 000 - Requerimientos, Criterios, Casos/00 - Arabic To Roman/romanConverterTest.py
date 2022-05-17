@@ -18,6 +18,9 @@ class IsNaturalTest(unittest.TestCase):
         self.assertEqual(isNatural("9999.585"), False)
         self.assertEqual(isNatural("1.0000000001"), False)
 
+    def text_WhenZero(self):
+        self.assertEqual(isNatural("0"), False)
+
     def test_WhenTrash(self):
         self.assertEqual(isNatural("abracadabra"), False)
         self.assertEqual(isNatural("Teen Wolf"), False)

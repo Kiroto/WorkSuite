@@ -24,6 +24,7 @@ def clr_scr():
 # ___
 # MMMXXXV
 
+
 def getUserString(prompt:str):
     print(prompt)
     userInput = input()
