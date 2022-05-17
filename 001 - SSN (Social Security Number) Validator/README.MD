@@ -31,9 +31,9 @@ Refer to the [user manual](docs/MANUAL.MD).
 * Documentation
     * [x] Installation instructions
     * [x] User Manual
-    * [ ] Test Cases
-        * [ ] Positive Scenarios
-        * [ ] Negative Scenarios
+    * [x] Test Cases
+        * [x] Positive Scenarios
+        * [x] Negative Scenarios
 ## Acceptance Criteria
 * [ ] For a text input, the program's user must know whether or not the text input is a valid SSN.
 
