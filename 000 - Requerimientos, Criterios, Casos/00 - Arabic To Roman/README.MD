@@ -16,14 +16,14 @@ You need to be able to execute python files with python 3. On that note, the met
 ### Functional Requirements
 * Transforms non-rational numbers written in arabic numerals to roman numerals.
 * Supports numbers from 1 to any positive number.
-    * Numbers above 3 million are not recommended.
+    * Use big numbers at your own risk
 ### Non-Functional Requirements
 * Mis-input handling
 * Allows multiple inputs per run
 * Practical
 ## Acceptance Criteria
 * The user can an input arabic numerals and the program shows roman numerals corresponding to the input.
-    * Or an error if the arabic numeral is negative or 0.
+    * Or an error if the arabic numeral is negative, rational, or 0.
 ## Test Cases
 ### Unit Tests
 * The transformative function should reject non-numbers.
