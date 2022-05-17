@@ -4,7 +4,7 @@ import re
 
 class Ruleset(Enum):
     BaseFive = 0    # V L D
-    BaseOne = 1     # I X C M
+    BaseOne = 1     # I X C
     MaxValue = 2    # /M
 
 class RomanNumeral:
@@ -47,15 +47,36 @@ def isNatural(numberString: str):
     trueValue = not bool(matchObj)
     return trueValue
 
+def listGetFirst(list:list, ld):
+    first = None
+    for item in list:
+        if ld(item) == True:
+            first = item
+            break
+    return first
+
 def transformToRomanNumeral(number: int):
     romanNumeralTop = ""
     romanNumerals = ""
     while(number > 0):
         for idx, numeral in enumerate(romanNumeralList):
+            firstThatCanSubtract = listGetFirst(romanNumeralList, lambda x : x.value < numeral.value and x.ruleset == Ruleset.BaseOne )
+            numeralTuple = numeral.toStringTuple()
+
             while (number >= numeral.value):
-                numeralTuple = numeral.toStringTuple()
                 romanNumeralTop += numeralTuple[0]
                 romanNumerals += numeralTuple[1]
                 number -= numeral.value
+            if (firstThatCanSubtract == None): continue
+            valueMinus = numeral.value - firstThatCanSubtract.value
+
+            if (number >= (valueMinus)):
+                subtractTuple = firstThatCanSubtract.toStringTuple()
+                romanNumeralTop += subtractTuple[0]
+                romanNumerals += subtractTuple[1]
+                romanNumeralTop += numeralTuple[0]
+                romanNumerals += numeralTuple[1]
+                number -= valueMinus
+
     return romanNumeralTop + "\n" + romanNumerals
 
