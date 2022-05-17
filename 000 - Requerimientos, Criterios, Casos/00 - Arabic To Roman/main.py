@@ -30,6 +30,7 @@ def getUserString(prompt:str):
     return userInput
 
 def main():
+    clr_scr()
     while (True):
         userIn = getUserString("Write the number to be transformed to a roman numeral.\n(Values > 0, non decimal)\n(or \"exit\" to exit)").lower()
         if (userIn == "exit"):
