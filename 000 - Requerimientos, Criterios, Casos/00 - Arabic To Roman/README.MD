@@ -26,6 +26,7 @@ You need to be able to execute python files with python 3. On that note, the met
     * Or an error if the arabic numeral is negative, rational, or 0.
 ## Test Cases
 ### Unit Tests
+<!-- TODO: What is the output for all outputs (does it crash? what does it return?)-->
 * The transformative function should reject non-numbers.
 * The transformative function should reject decimal or otherwise rational numbers.
 * The transformative function should reject 0 or lower numbers.
@@ -39,9 +40,12 @@ You need to be able to execute python files with python 3. On that note, the met
     * 4000000 (MMMM with a line above)
 ### End-To-End
 Each test documented here comes from the initial state (start) of the program.
-* Writing `39.5` returns an error message; program doesn't crash.
-* Writing `-8` returns an error message; program doesn't crash.
-* Writing `0` returns an error message; program doesn't crash.
-* Writing `-72.5` returns an error message; program doesn't crash.
-* Writing `39` returns `XXXIX` on the next line.
-* Writing `4000000` returns `MMMM` with a line above on the next line.
+*To Input* data is to type the requested information into the console after the question prompt, and finally pressing the `Enter` key.
+The question form has `Write the number to be transformed to a roman numeral.` as a header.
+<!-- TODO: Add prerequisites, test IDs, and descriptions; make it a table? -->
+* Inputting `39.5` returns an error message; program doesn't crash.
+* Inputting `-8` returns an error message; program doesn't crash.
+* Inputting `0` returns an error message; program doesn't crash.
+* Inputting `-72.5` returns an error message; program doesn't crash.
+* Inputting `39` returns `XXXIX` on the next line.
+* Inputting `4000000` returns `MMMM` with a line above on the next line.
