@@ -1,4 +1,4 @@
-# Arabic do Numerals
+# SSN Validator
 This python script takes in a text input and validates that it is a well formed and valid SSN number
 ## Installation Steps
 You need to be able to execute python files with python 3. On that note, the methods of obtaining python to run the program differ from system to system. Here's the specifics on Windows and most Linux distributions.
