@@ -1,4 +1,4 @@
-# Arabic do Numerals
+# Arabic Numerals to Roman Numerals
 This python script takes in a number input in arabic numerals (0-9) and outputs it as a number in roman numerals (I-M) via the console.
 ## Installation Steps
 You need to be able to execute python files with python 3. On that note, the methods of obtaining python to run the program differ from system to system. Here's the specifics on Windows and most Linux distributions.
