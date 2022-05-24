@@ -45,7 +45,7 @@ class Temperature:
         return Temperature(value, TemperatureScale.KELVIN)
 
     # Returns a new temperature instance of the new scale
-    def toScale(self: 'Temperature', newScale : TemperatureScale) -> TemperatureScale:
+    def toScale(self: 'Temperature', newScale : TemperatureScale) -> 'Temperature':
         return {
             TemperatureScale.KELVIN : self.toKelvin,
             TemperatureScale.CELSIUS : self.toCelsius,
