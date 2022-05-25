@@ -7,35 +7,35 @@ class TemperatureScale(Enum):
 
 class Temperature:
     def __init__(self, value: float, scale : TemperatureScale):
-        self._value : float = value
+        self.value : float = value
         self._scale : TemperatureScale = scale
 
     def toKelvin(self):
         if self._scale == TemperatureScale.K:
-            return Temperature(self._value, self._scale)
+            return Temperature(self.value, self._scale)
         c = self.toCelsius()
-        return Temperature(c._value + 273.15, TemperatureScale.K)
+        return Temperature(c.value + 273.15, TemperatureScale.K)
 
     def toFarenheit(self):
         if self._scale == TemperatureScale.F:
-            return Temperature(self._value, self._scale)
+            return Temperature(self.value, self._scale)
         c = self.toCelsius()
-        return Temperature((c._value * 9 / 5) + 32, TemperatureScale.F)
+        return Temperature((c.value * 9 / 5) + 32, TemperatureScale.F)
 
     def toCelsius(self):
         if self._scale == TemperatureScale.C:
-            return Temperature(self._value, self._scale)
-        nv = Temperature(self._value, TemperatureScale.C)
+            return Temperature(self.value, self._scale)
+        nv = Temperature(self.value, TemperatureScale.C)
         if (self._scale == TemperatureScale.F):
-            nv._value = (self._value - 32) * 5 / 9
+            nv.value = (self.value - 32) * 5 / 9
         elif (self._scale == TemperatureScale.K):
-            nv._value = self._value - 273.15
+            nv.value = self.value - 273.15
         return nv
 
 
     def toScale(self, scale: TemperatureScale):
         if self._scale == scale:
-            return Temperature(self._value, self._scale)
+            return Temperature(self.value, self._scale)
         return {
             TemperatureScale.K: self.toKelvin,
             TemperatureScale.C: self.toCelsius,
@@ -44,19 +44,19 @@ class Temperature:
 
     def __add__(self, other : 'Temperature'):
         nv = other.toScale(self._scale)
-        return Temperature(self._value + nv._value, self._scale)
+        return Temperature(self.value + nv.value, self._scale)
 
     def __sub__(self, other : 'Temperature'):
         nv = other.toScale(self._scale)
-        return Temperature(self._value - nv._value, self._scale)
+        return Temperature(self.value - nv.value, self._scale)
 
     def __mul__(self, other : 'Temperature'):
         nv = other.toScale(self._scale)
-        return Temperature(self._value * nv._value, self._scale)
+        return Temperature(self.value * nv.value, self._scale)
 
     def __truediv__(self, other : 'Temperature'):
         nv = other.toScale(self._scale)
-        return Temperature(self._value / nv._value, self._scale)
+        return Temperature(self.value / nv.value, self._scale)
 
     def getScale(self):
         return self._scale
@@ -67,4 +67,4 @@ class Temperature:
             TemperatureScale.C: "C",
             TemperatureScale.F: "F"
         }[self._scale]
-        return f"{self._value} {scaleStr}"
+        return f"{self.value} {scaleStr}"
