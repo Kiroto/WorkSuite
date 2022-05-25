@@ -29,6 +29,13 @@ Las reuniones en un _coding dojo_ suelen ser de 2 horas y media hasta 3 horas, c
 ### 4. ¿Qué es TDD?
 _TDD_, por sus siglas en inglés _**T**est **D**riven **D**evelopment_ es un proceso de desarrollo de software que depende de que los requerimientos de software se conviertan en casos de prueba antes de que el programa esté completamente desarrollado, vigilando estas pruebas mientras se desarrolla el programa.
 
+El ciclo TDD contiene 3 pasos:
+1. Agrega una prueba de la nueva característica que se va a agregar.
+2. Ejecute todas las pruebas; la prueba recien creada va a fallar por razones esperadas.
+3. Escribe el codigo más simple que pase la prueba. No se debe crear mas codigo que el necesario.
+4. Todas las pruebas deben pasar, si alguna falla, el codigo debe ser revisado hasta que la prueba funcione.
+5. Reorganice el código para legibilidad y mantenibilidad. Despues de cada organizacion, todas las pruebas deben ser ejecutadas para confirmar que ninguna funcionalidad existente se haya roto.
+
 ### 5. ¿Que son pruebas unitarias automatizadas?
 Una prueba unitaria es un método de prueba que prueba la validez de una parte minima de un programa, llamado unidad. Las unidades pueden ser aisladas lógicamente de un sistema. Las unidades, por lo tanto, son partes de un software como lo son funciones (o métodos) y subrutinas. Las pruebas unitarias automatizadas son las purebas unitarias que son ejecutadas por otro código: es hacer un programa para probar un programa.
 
