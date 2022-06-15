@@ -10,18 +10,21 @@ class Range:
         self.end = endExtreme
 
     def contains(self: 'Range', other: 'Range') -> bool:
-        otherInitial = other.start.value
-        otherEnd = other.end.value
-        selfInitial = self.start.value
-        selfEnd = self.end.value
+        return self.initialValue() <= other.initialValue() and self.finalValue() >= other.finalValue()
 
-        if (other.start.isOpen) :
-            otherInitial += 1
-        if (other.end.isOpen) :
-            otherEnd -= 1
+    def initialValue(self: 'Range') -> int:
+        selfInitial = self.start.value
         if (self.start.isOpen) :
             selfInitial += 1
-        if (self.end.isOpen) :
-            selfEnd -= 1
+        return selfInitial
 
-        return selfInitial <= otherInitial and selfEnd >= otherEnd
+    def finalValue(self: 'Range') -> int:
+        selfLast = self.end.value
+        if (self.end.isOpen) :
+            selfLast -= 1
+        return selfLast
+
+
+    def allPoints(self: 'Range') -> 'list[int]':
+        counter = self.initialValue()
+        return []

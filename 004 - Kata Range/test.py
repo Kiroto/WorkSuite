@@ -49,5 +49,10 @@ class RangePointsTest(unittest.TestCase):
         itemList = testingRange.allPoints()
         self.assertListEqual(itemList, [])
 
+    def test_contents(self):
+        testingRange = Range(Extreme(1, False), Extreme(2, False)) # [1, 2]
+        itemList = testingRange.allPoints()
+        self.assertListEqual(itemList, [1, 2])
+
 if __name__ == "__main__":
     unittest.main()
