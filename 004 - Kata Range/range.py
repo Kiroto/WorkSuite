@@ -8,3 +8,7 @@ class Range:
             raise TypeError(endExtreme)
         self.start = startExtreme
         self.end = endExtreme
+
+    def contains(self: 'Range', other: 'Range') -> bool:
+        otherInitial = other.start.value
+        if (other.start.isOpen)
