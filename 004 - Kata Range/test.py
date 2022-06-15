@@ -12,10 +12,13 @@ class ExtremeConstructorTest(unittest.TestCase):
         didFail = False
         try:
             Extreme(5.1, "fd")
-        except:
+        except TypeError:
             didFail = True
         self.assertTrue(didFail)
-
+    
+class RangeConstructorTest(unittest.TestCase):
+    def test_correct_construction(self):
+        testRange = Range(1, True)
 
 if __name__ == "__main__":
     unittest.main()

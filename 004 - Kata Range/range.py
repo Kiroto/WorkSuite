@@ -1,3 +1,3 @@
 class Range:
-    def __init__(self: 'Range', startValue: int, endValue: int, ) -> None:
+    def __init__(self: 'Range', startValue: Extreme, endValue: Extreme, ) -> None:
         pass
