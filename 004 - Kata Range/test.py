@@ -1,6 +1,6 @@
 import unittest
 from extreme import Extreme
-
+from range import Range
 
 class ExtremeConstructorTest(unittest.TestCase):
     def test_correct_construction(self):
@@ -15,10 +15,15 @@ class ExtremeConstructorTest(unittest.TestCase):
         except TypeError:
             didFail = True
         self.assertTrue(didFail)
-    
+
 class RangeConstructorTest(unittest.TestCase):
     def test_correct_construction(self):
-        testRange = Range(1, True)
+        testRange = Range(Extreme(1, True), Extreme(3, False)) # (1, 3]
+        self.assertEqual(testRange.start.value, 1)
+        self.assertEqual(testRange.start.open, True)
+        self.assertEqual(testRange.end.value, 3)
+        self.assertEqual(testRange.end.open, False)
+
 
 if __name__ == "__main__":
     unittest.main()
