@@ -43,5 +43,11 @@ class RangeContainsTest(unittest.TestCase):
         comparingRange = Range(Extreme(4, True), Extreme(6, False)) # (4, 6]
         self.assertFalse(fromRange.contains(comparingRange))
 
+class RangePointsTest(unittest.TestCase):
+    def test_empty(self):
+        testingRange = Range(Extreme(1, True), Extreme(2, True)) # (1, 2)
+        itemList = testingRange.allPoints()
+        self.assertListEqual(itemList, [])
+
 if __name__ == "__main__":
     unittest.main()
