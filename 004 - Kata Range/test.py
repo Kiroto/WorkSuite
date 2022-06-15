@@ -37,11 +37,11 @@ class RangeContainsTest(unittest.TestCase):
         fromRange = Range(Extreme(1, True), Extreme(3, False)) # (1, 3]
         comparingRange = Range(Extreme(2, True), Extreme(3, False)) # (1, 3]
         self.assertTrue(fromRange.contains(comparingRange))
-    
+
     def test_doesnt_contain(self):
-        fromRange = Range(Extreme(1, True), Extreme(4, False)) # (1, 3]
-        comparingRange = Range(Extreme(4, True), Extreme(6, False)) # (1, 3]
-        self.assertTrue(fromRange.contains(comparingRange))
+        fromRange = Range(Extreme(1, True), Extreme(4, False)) # (1, 4]
+        comparingRange = Range(Extreme(4, True), Extreme(6, False)) # (4, 6]
+        self.assertFalse(fromRange.contains(comparingRange))
 
 if __name__ == "__main__":
     unittest.main()

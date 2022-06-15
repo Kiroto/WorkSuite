@@ -23,5 +23,5 @@ class Range:
             selfInitial += 1
         if (self.end.isOpen) :
             selfEnd -= 1
-        
+
         return selfInitial <= otherInitial and selfEnd >= otherEnd
