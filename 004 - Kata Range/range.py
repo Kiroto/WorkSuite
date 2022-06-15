@@ -11,4 +11,17 @@ class Range:
 
     def contains(self: 'Range', other: 'Range') -> bool:
         otherInitial = other.start.value
-        if (other.start.isOpen)
+        otherEnd = other.end.value
+        selfInitial = self.start.value
+        selfEnd = self.end.value
+
+        if (other.start.isOpen) :
+            otherInitial += 1
+        if (other.end.isOpen) :
+            otherEnd -= 1
+        if (self.start.isOpen) :
+            selfInitial += 1
+        if (self.end.isOpen) :
+            selfEnd -= 1
+        
+        return selfInitial <= otherInitial and selfEnd >= otherEnd
