@@ -23,6 +23,14 @@ class RangeConstructorTest(unittest.TestCase):
         self.assertEqual(testRange.start.open, True)
         self.assertEqual(testRange.end.value, 3)
         self.assertEqual(testRange.end.open, False)
+    
+    def test_incorrect_construction(self):
+        didFail = False
+        try:
+            Range(5.1, "fd")
+        except TypeError:
+            didFail = True
+        self.assertTrue(didFail)
 
 
 if __name__ == "__main__":
