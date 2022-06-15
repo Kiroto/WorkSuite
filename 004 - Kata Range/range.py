@@ -27,5 +27,10 @@ class Range:
 
     def allPoints(self: 'Range') -> 'list[int]':
         counter = self.initialValue()
-        while (counter )
-        return []
+        finalValue = self.finalValue()
+        points = []
+        
+        while (counter  <= finalValue) :
+            points.append(counter)
+            counter += 1  
+        return points
