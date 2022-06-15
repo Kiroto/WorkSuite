@@ -32,6 +32,11 @@ class RangeConstructorTest(unittest.TestCase):
             didFail = True
         self.assertTrue(didFail)
 
+class RangeContainsTest(unittest.TestCase):
+    def test_do_contain(self):
+        fromRange = Range(Extreme(1, True), Extreme(3, False)) # (1, 3]
+        comparingRange = Range(Extreme(2, True), Extreme(3, False)) # (1, 3]
+        self.assertTrue(fromRange.contains(comparingRange))
 
 if __name__ == "__main__":
     unittest.main()
