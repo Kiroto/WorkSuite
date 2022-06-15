@@ -27,4 +27,5 @@ class Range:
 
     def allPoints(self: 'Range') -> 'list[int]':
         counter = self.initialValue()
+        while (counter )
         return []
