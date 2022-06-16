@@ -9,7 +9,7 @@ class Range:
         self.start = startExtreme
         self.end = endExtreme
 
-    def contains(self: 'Range', intList: 'list[int]') -> bool :
+    def containsAll(self: 'Range', intList: 'list[int]') -> bool :
         initialValue = self.initialValue()
         endValue = self.finalValue()
 
@@ -17,6 +17,15 @@ class Range:
             if item < initialValue or item > endValue :
                 return False
         return True
+
+    def any(self: 'Range', intList: 'list[int]') -> bool :
+        initialValue = self.initialValue()
+        endValue = self.finalValue()
+
+        for item in intList:
+            if item >= initialValue and item <= endValue :
+                return True
+        return False
 
     def containsRange(self: 'Range', other: 'Range') -> bool:
         return self.initialValue() <= other.initialValue() and self.finalValue() >= other.finalValue()
@@ -49,6 +58,6 @@ class Range:
         return endpoints
 
     def overlaps(self: 'Range', other: 'Range') -> bool:
-        otherContains = other.contains([self.initialValue(), self.finalValue()])
-        Icontain = self.contains([other.initialValue(), other.finalValue()])
+        otherContains = other.any([self.initialValue(), self.finalValue()])
+        Icontain = self.any([other.initialValue(), other.finalValue()])
         return otherContains or Icontain

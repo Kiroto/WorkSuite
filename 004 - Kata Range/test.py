@@ -57,11 +57,11 @@ class RangePointsTest(unittest.TestCase):
 class RangeIntContainsTest(unittest.TestCase):
     def test_does_contain(self):
         testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
-        self.assertTrue(testingRange.contains([2,3,4,5]))
+        self.assertTrue(testingRange.containsAll([2,3,4,5]))
 
     def test_doesnt_contain(self):
         testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
-        self.assertFalse(testingRange.contains([-1,2,3,4,5]))
+        self.assertFalse(testingRange.containsAll([-1,2,3,4,5]))
 
 class RangeEndpointsTest(unittest.TestCase):
     def test_open_endpoints(self):
@@ -85,7 +85,7 @@ class RangeOverlapTest(unittest.TestCase):
         self.assertTrue(testingRange.overlaps(comparingRange))
 
     def test_does_overlap_left(self):
-        comparingRange = Range(Extreme(1, False), Extreme(6, False)) # [4, 6]
+        comparingRange = Range(Extreme(1, False), Extreme(6, False)) # [1, 6]
         testingRange = Range(Extreme(2, True), Extreme(9, False)) # (2, 9]
 
         self.assertTrue(testingRange.overlaps(comparingRange))
