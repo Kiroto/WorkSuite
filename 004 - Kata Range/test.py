@@ -128,6 +128,26 @@ class RangeOverlapTest(unittest.TestCase):
 
         self.assertFalse(testingRange.overlaps(comparingRange))
 
+class RangeEqualsTest(unittest.TestCase):
+    def test_self_equals_self(self):
+        testingRange = Range(Extreme(3, False), Extreme(5, True)) # [3, 5)
 
+        self.assertTrue(testingRange == testingRange)
+
+    def test_range_not_equals(self):
+        testingRange = Range(Extreme(3, False), Extreme(5, True)) # [3, 5)
+        otherRange = Range(Extreme(4, False), Extreme(5, True)) # [4, 5)
+
+        self.assertTrue(testingRange == otherRange)
+
+    def test_range_equivalent(self):
+        testingRange = Range(Extreme(4, True), Extreme(8, True)) # (4, 8)
+        otherRange = Range(Extreme(5, False), Extreme(7, False)) # [5, 7]
+
+        self.assertTrue(testingRange == otherRange)
+
+
+#  def __eq__(self, obj):
+#         return isinstance(obj, MyFoo) and obj.equalityprop == self.equalityprop
 if __name__ == "__main__":
     unittest.main()
