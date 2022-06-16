@@ -9,6 +9,15 @@ class Range:
         self.start = startExtreme
         self.end = endExtreme
 
+    def contains(self: 'Range', intList: 'list[int]') -> bool :
+        initialValue = self.initialValue()
+        endValue = self.finalValue()
+
+        for item in intList:
+            if item < initialValue or item > endValue :
+                return False
+        return True
+
     def containsRange(self: 'Range', other: 'Range') -> bool:
         return self.initialValue() <= other.initialValue() and self.finalValue() >= other.finalValue()
 

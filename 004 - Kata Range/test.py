@@ -54,6 +54,14 @@ class RangePointsTest(unittest.TestCase):
         itemList = testingRange.allPoints()
         self.assertListEqual(itemList, [1, 2])
 
+class RangeIntContainsTest(unittest.TestCase):
+    def test_does_contain(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
+        self.assertTrue(testingRange.contains([2,3,4,5]))
+    
+    def test_doesnt_contain(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
+        self.assertFalse(testingRange.contains([-1,2,3,4,5]))
 
 if __name__ == "__main__":
     unittest.main()
