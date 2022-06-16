@@ -77,6 +77,43 @@ class RangeEndpointsTest(unittest.TestCase):
         testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
         self.assertListEqual(testingRange.endPoints(), [2, 6])
 
+class RangeOverlapTest(unittest.TestCase):
+    def test_does_overlap_right(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
+        comparingRange = Range(Extreme(2, True), Extreme(9, False)) # (2, 9]
+
+        self.assertTrue(testingRange.overlaps(comparingRange))
+
+    def test_does_overlap_left(self):
+        comparingRange = Range(Extreme(1, False), Extreme(6, False)) # [4, 6]
+        testingRange = Range(Extreme(2, True), Extreme(9, False)) # (2, 9]
+
+        self.assertTrue(testingRange.overlaps(comparingRange))
+
+
+    def test_does_overlap_contains(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
+        comparingRange = Range(Extreme(2, True), Extreme(3, False)) # (2, 3]
+
+        self.assertTrue(testingRange.overlaps(comparingRange))
+
+    def test_does_overlap_is_contained(self):
+        comparingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
+        testingRange = Range(Extreme(2, True), Extreme(3, False)) # (2, 3]
+
+        self.assertTrue(testingRange.overlaps(comparingRange))
+
+    def test_doesnt_overlap_edge(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
+        comparingRange = Range(Extreme(6, True), Extreme(9, False)) # (6, 9]
+
+        self.assertFalse(testingRange.overlaps(comparingRange))
+
+    def test_doesnt_overlap_plain(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
+        comparingRange = Range(Extreme(7, False), Extreme(9, False)) # (6, 9]
+
+        self.assertFalse(testingRange.overlaps(comparingRange))
 
 
 if __name__ == "__main__":
