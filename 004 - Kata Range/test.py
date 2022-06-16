@@ -66,16 +66,16 @@ class RangeIntContainsTest(unittest.TestCase):
 class RangeEndpointsTest(unittest.TestCase):
     def test_open_endpoints(self):
         testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
-        self.AssertListEqual(testingRange.endPoints(), [2, 5])
+        self.assertListEqual(testingRange.endPoints(), [2, 5])
 
     def test_closed_endpoints(self):
         testingRange = Range(Extreme(4, False), Extreme(6, False)) # [4, 6]
-        self.AssertListEqual(testingRange.endPoints(), [4, 6])
+        self.assertListEqual(testingRange.endPoints(), [4, 6])
 
 
     def test_semiOpen_endpoints(self):
         testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
-        self.AssertListEqual(testingRange.endPoints(), [2, 6])
+        self.assertListEqual(testingRange.endPoints(), [2, 6])
 
 
 

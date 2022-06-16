@@ -43,3 +43,7 @@ class Range:
             points.append(counter)
             counter += 1
         return points
+
+    def endPoints(self: 'Range') -> 'list[int]':
+        endpoints = [self.initialValue(), self.finalValue()]
+        return endpoints
