@@ -49,4 +49,6 @@ class Range:
         return endpoints
 
     def overlaps(self: 'Range', other: 'Range') -> bool:
-        return other.contains([self.initialValue()]) or other.contains(self.finalValue()) or self.contains([other.initialValue()]) or self.contains(other.finalValue())
+        otherContains = other.contains([self.initialValue(), self.finalValue()])
+        Icontain = self.contains([other.initialValue(), other.finalValue()])
+        return otherContains or Icontain
