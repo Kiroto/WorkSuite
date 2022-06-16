@@ -111,7 +111,7 @@ class RangeOverlapTest(unittest.TestCase):
 
     def test_doesnt_overlap_plain(self):
         testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
-        comparingRange = Range(Extreme(7, False), Extreme(9, False)) # (6, 9]
+        comparingRange = Range(Extreme(7, False), Extreme(9, False)) # [7, 9]
 
         self.assertFalse(testingRange.overlaps(comparingRange))
 
