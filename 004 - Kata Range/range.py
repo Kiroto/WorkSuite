@@ -9,7 +9,7 @@ class Range:
         self.start = startExtreme
         self.end = endExtreme
 
-    def contains(self: 'Range', other: 'Range') -> bool:
+    def containsRange(self: 'Range', other: 'Range') -> bool:
         return self.initialValue() <= other.initialValue() and self.finalValue() >= other.finalValue()
 
     def initialValue(self: 'Range') -> int:

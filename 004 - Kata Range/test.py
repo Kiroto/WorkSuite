@@ -36,12 +36,12 @@ class RangeContainsTest(unittest.TestCase):
     def test_do_contain(self):
         fromRange = Range(Extreme(1, True), Extreme(3, False)) # (1, 3]
         comparingRange = Range(Extreme(2, True), Extreme(3, False)) # (1, 3]
-        self.assertTrue(fromRange.contains(comparingRange))
+        self.assertTrue(fromRange.containsRange(comparingRange))
 
     def test_doesnt_contain(self):
         fromRange = Range(Extreme(1, True), Extreme(4, False)) # (1, 4]
         comparingRange = Range(Extreme(4, True), Extreme(6, False)) # (4, 6]
-        self.assertFalse(fromRange.contains(comparingRange))
+        self.assertFalse(fromRange.containsRange(comparingRange))
 
 class RangePointsTest(unittest.TestCase):
     def test_empty(self):
@@ -53,6 +53,7 @@ class RangePointsTest(unittest.TestCase):
         testingRange = Range(Extreme(1, False), Extreme(2, False)) # [1, 2]
         itemList = testingRange.allPoints()
         self.assertListEqual(itemList, [1, 2])
+
 
 if __name__ == "__main__":
     unittest.main()
