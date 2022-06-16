@@ -58,10 +58,26 @@ class RangeIntContainsTest(unittest.TestCase):
     def test_does_contain(self):
         testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
         self.assertTrue(testingRange.contains([2,3,4,5]))
-    
+
     def test_doesnt_contain(self):
         testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
         self.assertFalse(testingRange.contains([-1,2,3,4,5]))
+
+class RangeEndpointsTest(unittest.TestCase):
+    def test_open_endpoints(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, True)) # (1, 6)
+        self.AssertListEqual(testingRange.endPoints(), [2, 5])
+
+    def test_closed_endpoints(self):
+        testingRange = Range(Extreme(4, False), Extreme(6, False)) # [4, 6]
+        self.AssertListEqual(testingRange.endPoints(), [4, 6])
+
+
+    def test_semiOpen_endpoints(self):
+        testingRange = Range(Extreme(1, True), Extreme(6, False)) # (1, 6]
+        self.AssertListEqual(testingRange.endPoints(), [2, 6])
+
+
 
 if __name__ == "__main__":
     unittest.main()

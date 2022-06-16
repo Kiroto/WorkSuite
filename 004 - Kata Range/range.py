@@ -38,8 +38,8 @@ class Range:
         counter = self.initialValue()
         finalValue = self.finalValue()
         points = []
-        
+
         while (counter  <= finalValue) :
             points.append(counter)
-            counter += 1  
+            counter += 1
         return points
