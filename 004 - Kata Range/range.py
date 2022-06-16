@@ -61,3 +61,6 @@ class Range:
         otherContains = other.any([self.initialValue(), self.finalValue()])
         Icontain = self.any([other.initialValue(), other.finalValue()])
         return otherContains or Icontain
+
+    def __eq__(self: 'Range', other: 'Range') -> bool:
+        return self.initialValue() == other.initialValue() and self.finalValue() == other.finalValue()
