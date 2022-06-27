@@ -146,6 +146,12 @@ class RangeEqualsTest(unittest.TestCase):
 
         self.assertTrue(testingRange == otherRange)
 
+class RangeNameTest(unittest.TestCase):
+    def test_getName(self):
+        testingRange = Range(Extreme(3, False), Extreme(5, True)) # [3, 5)
+        self.assertTrue(str(testingRange) == "[3, 5)")
+
+
 
 if __name__ == "__main__":
     unittest.main()
