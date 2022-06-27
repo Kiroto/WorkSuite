@@ -38,10 +38,17 @@ def enterFunct(**kwargs):
     ranges.append(r1)
     print(f"Successfully added the range {firstBracket}{firstNumber}, {lastNumber}{lastBracket}!")
 
+def listFunct(**kwargs):
+    ranges = kwargs["ranges"]
+    en = enumerate(ranges)
+    for idx, range in en:
+        print(f"{idx} - {range}")
+
 
 functions = {
     "exit": exitFunct,
-    "enter": enterFunct
+    "enter": enterFunct,
+    "list": listFunct
 }
 
 
