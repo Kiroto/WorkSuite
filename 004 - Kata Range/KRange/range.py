@@ -64,3 +64,13 @@ class Range:
 
     def __eq__(self: 'Range', other: 'Range') -> bool:
         return self.initialValue() == other.initialValue() and self.finalValue() == other.finalValue()
+
+    def __str__(self: 'Range'):
+        startChar = "["
+        if (self.start.isOpen):
+            starChar = "("
+
+        endChar = "]"
+        if (self.end.isOpen):
+            endChar = ")"
+        return f"{startChar}{self.start.value}, {self.end.value}{endChar}"
