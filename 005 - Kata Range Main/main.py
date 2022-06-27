@@ -20,6 +20,7 @@ def enterFunct(**kwargs):
     print("DIV: ", division)
     print("FN: ", firstNumber)
     print("SN: ", secondNumber)
+    if(firstBracket in ["(", "["]): isOpen
 
 functions = {
     "exit": exitFunct,
