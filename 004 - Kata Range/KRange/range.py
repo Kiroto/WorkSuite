@@ -68,7 +68,7 @@ class Range:
     def __str__(self: 'Range'):
         startChar = "["
         if (self.start.isOpen):
-            starChar = "("
+            startChar = "("
 
         endChar = "]"
         if (self.end.isOpen):
