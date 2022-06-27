@@ -5,6 +5,6 @@ setup(
     author="Jerry Rivas",
     author_email="jerry.rivas@hotmail.com",
     description="A package that manages ranges and extremes",
-    version="1.0",
+    version="1.1",
     packages=["KRange"]
 )

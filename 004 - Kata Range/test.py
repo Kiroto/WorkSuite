@@ -1,6 +1,6 @@
 import unittest
-from extreme import Extreme
-from range import Range
+from KRange.extreme import Extreme
+from KRange.range import Range
 
 class ExtremeConstructorTest(unittest.TestCase):
     def test_correct_construction(self):
