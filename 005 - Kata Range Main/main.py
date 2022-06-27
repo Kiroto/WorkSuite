@@ -1,4 +1,3 @@
-import imp
 import os
 from KRange.range import Range
 from KRange.extreme import Extreme
@@ -68,7 +67,6 @@ if __name__ == "__main__":
     while(True):
         print("Issue your next command")
         usrIn = input().lower()
-        toExecute = functions[usrIn]
         os.system("cls")
 
         if (usrIn in functions.keys()):
