@@ -1,4 +1,5 @@
 import os
+from unicodedata import numeric
 from KRange.range import Range
 from KRange.extreme import Extreme
 
@@ -43,11 +44,25 @@ def listFunct(**kwargs):
     for idx, range in en:
         print(f"{idx} - {range}")
 
+def delFunct(**kwargs):
+    ranges = kwargs["ranges"]
+    listFunct(ranges = ranges)
+    print("what range do you whant to remove?: ")
+    delRange = input()
+    if (not delRange.isnumeric()):
+        print("the index that you're searching was not a number. please write a valid index")
+        return
+    ranges.pop(int(delRange))
+    
+
+
+
 
 functions = {
     "exit": exitFunct,
     "enter": enterFunct,
-    "list": listFunct
+    "list": listFunct,
+    "delete": delFunct
 }
 
 
