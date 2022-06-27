@@ -14,27 +14,29 @@ def enterFunct(**kwargs):
     firstBracket = usrIn[0]
     lastBracket = usrIn[-1]
     division = usrIn.find(",")
-    firstNumber = int(usrIn[1: division])
-    secondNumber = int(usrIn[division + 1: -1])
-    isOpen1 = True
-    isOpen2 = True
-    
-    print("FB: ", firstBracket)
-    print("LB: ", lastBracket)
-    print("DIV: ", division)
-    print("FN: ", firstNumber)
-    print("SN: ", secondNumber)
-    if(firstBracket in ["(", "["]): 
-        isOpen1 = firstBracket == "("
-    if(lastBracket in [")", "]"]):
-        isOpen2 = lastBracket == ")"
-    
-    ex1 = Extreme(firstNumber, isOpen1)
-    ex2 = Extreme(secondNumber, isOpen2)
+    firstNumberText = usrIn[1: division].strip(" ")
+    lastNumberText = usrIn[division + 1: -1].strip(" ")
+
+    if(not firstBracket in ["(", "["] or not lastBracket in [")", "]"]):
+        print("An edge was invalid (please use \"()\" or \"[]\" in your range declaration!")
+        return
+
+    if (not firstNumberText.isnumeric() or not lastNumberText.isnumeric()):
+        print("One of the entered numbers was invalid. Please write a valid number!")
+        return
+
+
+    startEdge = firstBracket == "("
+    endEdge = lastBracket == ")"
+    firstNumber = int(firstNumberText)
+    lastNumber = int(lastNumberText)
+
+    ex1 = Extreme(firstNumber, startEdge)
+    ex2 = Extreme(lastNumber, endEdge)
 
     r1 = Range(ex1, ex2)
     ranges.append(r1)
-    print(r1.allPoints())
+    print(f"Successfully added the range {firstBracket}{firstNumber}, {lastNumber}{lastBracket}!")
 
 
 functions = {
