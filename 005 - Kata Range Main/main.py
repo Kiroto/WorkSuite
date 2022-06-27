@@ -1,5 +1,7 @@
+import imp
 import os
 from KRange.range import Range
+from KRange.extreme import Extreme
 
 def exitFunct(**kwargs):
     return -1
@@ -12,15 +14,28 @@ def enterFunct(**kwargs):
     firstBracket = usrIn[0]
     lastBracket = usrIn[-1]
     division = usrIn.find(",")
-    firstNumber = usrIn[1: division]
-    secondNumber = usrIn[division + 1: -1]
-
+    firstNumber = int(usrIn[1: division])
+    secondNumber = int(usrIn[division + 1: -1])
+    isOpen1 = True
+    isOpen2 = True
+    
     print("FB: ", firstBracket)
     print("LB: ", lastBracket)
     print("DIV: ", division)
     print("FN: ", firstNumber)
     print("SN: ", secondNumber)
-    if(firstBracket in ["(", "["]): isOpen
+    if(firstBracket in ["(", "["]): 
+        isOpen1 = firstBracket == "("
+    if(lastBracket in [")", "]"]):
+        isOpen2 = lastBracket == ")"
+    
+    ex1 = Extreme(firstNumber, isOpen1)
+    ex2 = Extreme(secondNumber, isOpen2)
+
+    r1 = Range(ex1, ex2)
+    ranges.append(r1)
+    print(r1.allPoints())
+
 
 functions = {
     "exit": exitFunct,
