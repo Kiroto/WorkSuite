@@ -138,6 +138,24 @@ def allFromListFunct(**kwargs):
         print("The index you are searching is out of range. Please cry about it :( 😿")
         return
 
+def allPointsFunct(**kwargs):
+        ranges = kwargs["ranges"]
+        if (len(ranges) == 0):
+            print("There are no ranges to check.")
+            return
+        listFunct(ranges = ranges)
+        print(f"What range do you whant check all points? (0-{len(ranges)})")
+  
+        try:
+            delIndex = getValidIndex(ranges)
+            r1 = ranges[delIndex]
+            print(r1.allPoints())
+        except(ArgumentError):
+            print("the index that you're searching was not a number. please write a valid index")
+            return
+        except(IndexError):
+            print("the index you are searching is out of range, please cry about it :)")
+            return
 
 functions = {
     "exit": exitFunct,
@@ -145,7 +163,8 @@ functions = {
     "list": listFunct,
     "delete": delFunct,
     "overlapcheck": overlapFunct,
-    "allfromlist": allFromListFunct
+    "allfromlist": allFromListFunct,
+    "allpoints": allPointsFunct
 }
 
 
