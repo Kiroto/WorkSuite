@@ -157,20 +157,18 @@ class RangeNameTest(unittest.TestCase):
     def test_getNameOpenClosed(self):
         testingRange = Range(Extreme(3, True), Extreme(5, False)) # [3, 5)
         self.assertTrue(str(testingRange) == "(3, 5]")
-    
+
     def test_getNameOpenOpen(self):
         testingRange = Range(Extreme(3, True), Extreme(5, True)) # [3, 5)
         self.assertTrue(str(testingRange) == "(3, 5)")
-    
+
     def test_getNameClosedClosed(self):
         testingRange = Range(Extreme(3, False), Extreme(5, False)) # [3, 5)
         self.assertTrue(str(testingRange) == "[3, 5]")
-    
+
     def test_getNameClosedOpen(self):
         testingRange = Range(Extreme(3, False), Extreme(5, True)) # [3, 5)
         self.assertTrue(str(testingRange) == "[3, 5)")
-
-
 
 if __name__ == "__main__":
     unittest.main()
