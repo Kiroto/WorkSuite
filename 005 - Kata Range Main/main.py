@@ -176,6 +176,35 @@ def getExtremeFunct(**kwargs):
             print("the index you are searching is out of range, please cry about it :)")
             return
 
+def rangeContainsFunct(**kwargs):
+    ranges = kwargs["ranges"]
+    if (len(ranges) == 0):
+        print("There are no ranges to check for contains.")
+        return
+    listFunct(ranges = ranges)
+
+    try:
+        print("Select the greater range")
+        firstIndex = getValidIndex(ranges)
+        r1 = ranges[firstIndex]
+        print(r1)
+        print("Select the smaller range")
+        secondIndex = getValidIndex(ranges)
+        r2 = ranges[secondIndex]
+        print(r2)
+        print(f"The range {r1}", end=" ")
+        if (r1.containsRange(r2)):
+            print("does contain", end = " ")
+        else:
+            print("does not contain", end = " ")
+        print(r2)
+    except(ArgumentError):
+        print("The index that you're searching was not a number. Please write a valid index")
+        return
+    except(IndexError):
+        print("The index you are searching is out of range. Please cry about it :( 😿")
+        return
+
 functions = {
     "exit": exitFunct,
     "enter": enterFunct,
@@ -184,7 +213,8 @@ functions = {
     "overlapcheck": overlapFunct,
     "allfromlist": allFromListFunct,
     "allpoints": allPointsFunct,
-    "getextremes": getExtremeFunct
+    "getextremes": getExtremeFunct,
+    "rangecontains": rangeContainsFunct
 }
 
 
