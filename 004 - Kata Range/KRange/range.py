@@ -6,6 +6,10 @@ class Range:
             raise TypeError(startExtreme)
         if type(endExtreme) is not Extreme:
             raise TypeError(endExtreme)
+        if (startExtreme.value > endExtreme.value):
+            temp = endExtreme
+            endExtreme = startExtreme
+            startExtreme = temp
         self.start = startExtreme
         self.end = endExtreme
 
