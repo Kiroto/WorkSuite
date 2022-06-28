@@ -58,6 +58,33 @@ def delFunct(**kwargs):
         return 
     ranges.pop(delIndex)
     
+def overlapFunct(**kwargs):
+    ranges = kwargs["ranges"]
+
+    idxText = input()
+    if (not idxText.isnumeric()):
+        print("the index that you're searching was not a number. please write a valid index")
+        return
+    delIndex = int(idxText)
+    if(not (delIndex >= 0 and delIndex < len(ranges))):
+        print("the index you are searching is not available, please cry about it :)")
+        return
+    
+    r1 = ranges [idxText]
+
+    idxText = input()
+    if (not idxText.isnumeric()):
+        print("the index that you're searching was not a number. please write a valid index")
+        return
+    delIndex = int(idxText)
+    if(not (delIndex >= 0 and delIndex < len(ranges))):
+        print("the index you are searching is not available, please cry about it :)")
+        return
+
+    r2 = ranges [idxText]
+    
+    print(r1.overlaps(r2))
+    
 
 
 
@@ -65,7 +92,8 @@ functions = {
     "exit": exitFunct,
     "enter": enterFunct,
     "list": listFunct,
-    "delete": delFunct
+    "delete": delFunct,
+    "overlapCheck": overlapFunct
 }
 
 
