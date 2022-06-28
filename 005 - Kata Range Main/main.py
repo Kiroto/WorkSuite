@@ -48,13 +48,16 @@ def delFunct(**kwargs):
     ranges = kwargs["ranges"]
     listFunct(ranges = ranges)
     print("what range do you whant to remove?: ")
-    delRange = input()
-    if (not delRange.isnumeric()):
+    delText = input()
+    if (not delText.isnumeric()):
         print("the index that you're searching was not a number. please write a valid index")
         return
-    ranges.pop(int(delRange))
+    delIndex = int(delText)
+    if(not (delIndex >= 0 and delIndex < len(ranges))):
+        print("the index you are searching is not available, please cry about it :)")
+        return 
+    ranges.pop(delIndex)
     
-
 
 
 
