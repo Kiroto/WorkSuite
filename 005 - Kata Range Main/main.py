@@ -37,7 +37,7 @@ def enterFunct(**kwargs):
 
     r1 = Range(ex1, ex2)
     ranges.append(r1)
-    print(f"Successfully added the range {firstBracket}{firstNumber}, {lastNumber}{lastBracket}!")
+    print(f"Successfully added the range {r1}!")
 
 def listFunct(**kwargs):
     print("Available Ranges:")
