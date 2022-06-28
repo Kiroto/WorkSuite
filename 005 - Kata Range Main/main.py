@@ -83,11 +83,11 @@ def overlapFunct(**kwargs):
     listFunct(ranges = ranges)
 
     try:
-        print("Insert the first range")
+        print("Select the first range")
         firstIndex = getValidIndex(ranges)
         r1 = ranges[firstIndex]
         print(r1)
-        print("Insert the second range")
+        print("Select the second range")
         secondIndex = getValidIndex(ranges)
         r2 = ranges[secondIndex]
         print(r2)
@@ -103,12 +103,49 @@ def overlapFunct(**kwargs):
         print("The index you are searching is out of range. Please cry about it :( 😿")
         return
 
+def allFromListFunct(**kwargs):
+    ranges = kwargs["ranges"]
+    if (len(ranges) == 0):
+        print("There are no ranges to check for contents.")
+        return
+
+    print("Write a list of numbers (separated by commas)")
+    print("Ex. \"5, 7, 8\"")
+    inputText = input()
+    numberTextList = inputText.split(",")
+    numberList = []
+    for numberText in numberTextList:
+        numberText = numberText.strip(" ")
+        if (not numberText.isnumeric()):
+            print(f"{numberText} is not an integer")
+            return
+        numberList.append(int(numberText))
+    listFunct(ranges = ranges)
+    try:
+        print("Select the range to compare")
+        rangeIndex = getValidIndex(ranges)
+        range = ranges[rangeIndex]
+        print(f"The range {range}", end=" ")
+        if (range.containsAll(numberList)):
+            print("does contain all of", end=" ")
+        else:
+            print("doesn't contain all of", end = " ")
+        print(numberList)
+    except(ArgumentError):
+        print("The index that you're searching was not a number. Please write a valid index")
+        return
+    except(IndexError):
+        print("The index you are searching is out of range. Please cry about it :( 😿")
+        return
+
+
 functions = {
     "exit": exitFunct,
     "enter": enterFunct,
     "list": listFunct,
     "delete": delFunct,
-    "overlapcheck": overlapFunct
+    "overlapcheck": overlapFunct,
+    "allfromlist": allFromListFunct
 }
 
 
