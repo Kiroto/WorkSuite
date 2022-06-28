@@ -179,24 +179,51 @@ def getExtremeFunct(**kwargs):
 def rangeContainsFunct(**kwargs):
     ranges = kwargs["ranges"]
     if (len(ranges) == 0):
-        print("There are no ranges to check for contains.")
+        print("There are no ranges to check for overlap.")
         return
     listFunct(ranges = ranges)
 
     try:
-        print("Select the greater range")
+        print("Select the first range")
         firstIndex = getValidIndex(ranges)
         r1 = ranges[firstIndex]
         print(r1)
-        print("Select the smaller range")
+        print("Select the second range")
+        secondIndex = getValidIndex(ranges)
+        r2 = ranges[secondIndex]
+        print(r2)
+        if (r1.containsRange(r2)):
+            print(f"{r1} contains {r2}")
+        else:
+            print(f"{r1} does not contain {r2}")
+    except(ArgumentError):
+        print("The index that you're searching was not a number. Please write a valid index")
+        return
+    except(IndexError):
+        print("The index you are searching is out of range. Please cry about it :( 😿")
+        return
+
+def equalsFunct(**kwargs):
+    ranges = kwargs["ranges"]
+    if (len(ranges) == 0):
+        print("There are no ranges to check for equality.")
+        return
+    listFunct(ranges = ranges)
+
+    try:
+        print("Select first range")
+        firstIndex = getValidIndex(ranges)
+        r1 = ranges[firstIndex]
+        print(r1)
+        print("Select second range")
         secondIndex = getValidIndex(ranges)
         r2 = ranges[secondIndex]
         print(r2)
         print(f"The range {r1}", end=" ")
-        if (r1.containsRange(r2)):
-            print("does contain", end = " ")
+        if (r1 == r2):
+            print("does equal", end = " ")
         else:
-            print("does not contain", end = " ")
+            print("does not equal", end = " ")
         print(r2)
     except(ArgumentError):
         print("The index that you're searching was not a number. Please write a valid index")
@@ -210,11 +237,12 @@ functions = {
     "enter": enterFunct,
     "list": listFunct,
     "delete": delFunct,
-    "overlapcheck": overlapFunct,
-    "allfromlist": allFromListFunct,
+    "overlap": overlapFunct,
+    "containsfromlist": allFromListFunct,
     "allpoints": allPointsFunct,
-    "getextremes": getExtremeFunct,
-    "rangecontains": rangeContainsFunct
+    "extremes": getExtremeFunct,
+    "contains": rangeContainsFunct,
+    "equals": equalsFunct
 }
 
 
