@@ -91,7 +91,7 @@ def overlapFunct(**kwargs):
         secondIndex = getValidIndex(ranges)
         r2 = ranges[secondIndex]
         print(r2)
-        print(f"The ranges  {r1} and {r2}", end=" ")
+        print(f"The ranges {r1} and {r2}", end=" ")
         if (r1.overlaps(r2)):
             print("do overlap")
         else:
@@ -145,7 +145,7 @@ def allPointsFunct(**kwargs):
             return
         listFunct(ranges = ranges)
         print(f"What range do you whant check all points? (0-{len(ranges)})")
-  
+
         try:
             delIndex = getValidIndex(ranges)
             r1 = ranges[delIndex]
@@ -164,7 +164,7 @@ def getExtremeFunct(**kwargs):
             return
         listFunct(ranges = ranges)
         print(f"What range do you whant check? (0-{len(ranges)})")
-  
+
         try:
             delIndex = getValidIndex(ranges)
             r1 = ranges[delIndex]
