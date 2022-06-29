@@ -18,8 +18,8 @@ def enterFunct(**kwargs):
     firstNumberText = usrIn[1: division].strip(" ")
     lastNumberText = usrIn[division + 1: -1].strip(" ")
 
-    validateFirstNumber = firstNumberText.strip("-").isnumeric()
-    validateLastNumber = lastNumberText.strip("-").isnumeric()
+    validateFirstNumber = firstNumberText.lstrip("-").isnumeric()
+    validateLastNumber = lastNumberText.lstrip("-").isnumeric()
 
     if(not firstBracket in ["(", "["] or not lastBracket in [")", "]"]):
         print("An edge was invalid (please use \"()\" or \"[]\" in your range declaration!")
