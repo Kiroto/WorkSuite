@@ -25,9 +25,6 @@ def enterFunct(**kwargs):
         print("An edge was invalid (please use \"()\" or \"[]\" in your range declaration!")
         return
 
-    # if (not firstNumberText.isnumeric() or not lastNumberText.isnumeric()):
-    #     print("One of the entered numbers was invalid. Please write a valid number!")
-    #     return
     if (not validateFirstNumber or not validateLastNumber):
         print("One of the entered numbers was invalid. Please write a valid number!")
         return
@@ -60,7 +57,6 @@ def getValidIndex(ranges):
         raise IndexError("Index out of range")
     return rangeIndex
 
-
 def delFunct(**kwargs):
     ranges = kwargs["ranges"]
     if (len(ranges) == 0):
@@ -78,7 +74,6 @@ def delFunct(**kwargs):
     except(IndexError):
         print("the index you are searching is out of range, please cry about it :)")
         return
-
 
 def overlapFunct(**kwargs):
     ranges = kwargs["ranges"]
@@ -237,6 +232,12 @@ def equalsFunct(**kwargs):
         print("The index you are searching is out of range. Please cry about it :( 😿")
         return
 
+def showFunctions(**kwargs):
+    keys = functions.keys()
+    print("The available commands are:")
+    for key in keys:
+        print(key)
+
 functions = {
     "exit": exitFunct,
     "enter": enterFunct,
@@ -247,18 +248,9 @@ functions = {
     "allpoints": allPointsFunct,
     "extremes": getExtremeFunct,
     "contains": rangeContainsFunct,
-    "equals": equalsFunct
+    "equals": equalsFunct,
+    "help": showFunctions
 }
-
-
-def showFunctions(**kwargs):
-    keys = functions.keys()
-    print("The available commands are:")
-    for key in keys:
-        print(key)
-
-
-functions["help"] = showFunctions
 
 if __name__ == "__main__":
     print("Welcome to the Range Testing program!")
